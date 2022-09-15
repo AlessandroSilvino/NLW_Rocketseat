@@ -1,0 +1,159 @@
+*{ /*"zerar o css, retirando coisas que tem por padrão no navegador*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*muda a maneira da contagem da borda*/ 
+}
+
+ul {
+    list-style: none; /*retirar as bolinhas da lista*/
+}
+
+body {
+    background-image: url(./assets/bg.jpg);
+    background-position: center top;
+    background-size: 100% auto; /*adequar ao tamanho da tela*/
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body * {
+    font-family: 'Inter', sans-serif; /*fonte importada, retirada do google e colada no head do index.html*/ 
+    line-height: 160%; /*altura da linha/letra (?)*/
+}
+
+header {
+    margin-top: 32px; /*pode ser padding tbm*/
+    text-align: center; /* tudo que for identificado como propriedade de texto (a imagem é), fica ao centro*/
+    height: 120px;
+}
+
+header div {
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
+    border-radius: 50%;
+    display: flex;
+    padding: 4px;
+
+    transition: transform .3s;
+
+}
+
+header div:hover {
+    transform: scale(1.1)
+
+}
+
+header div img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+main {
+    max-width: 580px;
+    width: 90%;
+    margin: auto; /*se adequa automaticamente ao tamalho da tela*/
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    margin: 32px auto; /* colocando apenas 2 valores ele identifica como sendo em cima e embaixo*/
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div {
+    background-color: #2A2634;
+    padding: 24px 32px 32px 32px;
+    border-radius: 8px;  
+}
+
+section h2 {
+    letter-spacing: -0.47px; /*espaçamento bem pequeno entre as letras*/
+}
+
+section p {
+    letter-spacing: -0.18px; /*espaçamento bem pequeno entre as letras*/
+    color: #A1A1AA;
+}
+
+section ul {
+    display: flex;
+    flex-wrap: wrap; /*quando inserir mais games eles vão pra baixo e não pro lado*/
+    gap: 16px;
+
+    margin-top: 24px;
+}
+
+section ul li {
+    transition: transform .3s;
+}
+
+section ul li:hover {
+    transform: scale(1.1)
+}
+
+.games-list img{
+    border-radius: 8px;
+    width: 90px;
+}
+
+.channel-list img {
+    border-radius: 50%;
+    width: 70px;
+    border: 1px solid #443E54;
+}
+
+/* animation */
+
+header div {
+    animation: fromTop .7s .2s backwards;
+}
+
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0); /* a posição atual do elemento sempre é 0 */
+    }
+}
+
+main section {
+    animation: fromBottom .7s backwards;
+}
+
+main section:nth-child(1) {
+    animation-delay: 0;
+}
+
+main section:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+main section:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
